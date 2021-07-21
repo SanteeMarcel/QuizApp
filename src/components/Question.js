@@ -16,7 +16,11 @@ const Question = (props) => {
 
             <h1>{question.category}</h1>
 
-            <fieldset className="box">{specialCharsToHTML(question.question)}</fieldset>
+            <fieldset className="box">
+                <h1 className="boxtext">
+                    {specialCharsToHTML(question.question)}
+                </h1>
+            </fieldset>
 
             <h1 className="text">{`${index} out of 10`}</h1>
 
