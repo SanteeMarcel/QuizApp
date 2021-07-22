@@ -27,11 +27,13 @@ const Results = (props) => {
                 );
             })}
 
+            <div onClick={() => window.location.reload()}>
             <Link href="/" className="button" >
                 PLAY AGAIN?
             </Link>
+            </div>
 
-        </main>
+        </main >
     );
 }
 
