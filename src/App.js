@@ -5,7 +5,7 @@ import Welcome from "./components/Welcome";
 import Question from "./components/Question";
 import Results from "./components/Results";
 import opentdb from "./apis/opentdb";
-import specialCharsToHTML from "./helpers/specialCharsToHTML";
+import specialCharsToHTML from "./utils/specialCharsToHTML";
 import Error from "./components/Error";
 
 const AMOUNT = 10;
@@ -21,17 +21,19 @@ const App = () => {
 
   useEffect(() => {
     const fetchQuestions = async (AMOUNT) => {
-      const { data } = await opentdb.get("https://opentdb.com/api.php", {
-        params: {
-          amount: AMOUNT,
-        },
-      }).catch(error => {
-        if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
+      const { data } = await opentdb
+        .get("https://opentdb.com/api.php", {
+          params: {
+            amount: AMOUNT,
+          },
+        })
+        .catch((error) => {
+          if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          }
+        });
 
       data.results.forEach((element) => {
         element.question = specialCharsToHTML(element.question);

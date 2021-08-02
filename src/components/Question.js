@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "./Link";
-import specialCharsToHTML from "../helpers/specialCharsToHTML";
 
 const Question = (props) => {
   const { question, index, AMOUNT, updateScore } = props;
@@ -12,7 +11,7 @@ const Question = (props) => {
       <h1>{question.category}</h1>
 
       <fieldset className="box">
-        <h1 className="boxtext">{specialCharsToHTML(question.question)}</h1>
+        <h1 className="boxtext">{question.question}</h1>
       </fieldset>
 
       <h1 className="text">{`${index} out of 10`}</h1>
