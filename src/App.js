@@ -22,7 +22,7 @@ const App = () => {
   useEffect(() => {
     const fetchQuestions = async (AMOUNT) => {
       const { data } = await opentdb
-        .get("https://opentdb.com/api.php", {
+        .get("", {
           params: {
             amount: AMOUNT,
           },
